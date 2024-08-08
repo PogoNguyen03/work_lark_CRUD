@@ -3,32 +3,28 @@
   "WorkspaceRootPath": "H:\\Work\\work_lark_CRUD\\web_CRUD\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3A5A6CE2-435D-4C66-9051-673F2499EA50}|web_CRUD\\web_CRUD.csproj|h:\\work\\work_lark_crud\\web_crud\\web_crud\\pages\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3A5A6CE2-435D-4C66-9051-673F2499EA50}|web_CRUD\\web_CRUD.csproj|solutionrelative:web_crud\\pages\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{3A5A6CE2-435D-4C66-9051-673F2499EA50}|web_CRUD\\web_CRUD.csproj|h:\\work\\work_lark_crud\\web_crud\\web_crud\\pages\\larkapiclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3A5A6CE2-435D-4C66-9051-673F2499EA50}|web_CRUD\\web_CRUD.csproj|solutionrelative:web_crud\\pages\\larkapiclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3A5A6CE2-435D-4C66-9051-673F2499EA50}|web_CRUD\\web_CRUD.csproj|h:\\work\\work_lark_crud\\web_crud\\web_crud\\pages\\update.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{3A5A6CE2-435D-4C66-9051-673F2499EA50}|web_CRUD\\web_CRUD.csproj|solutionrelative:web_crud\\pages\\update.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3A5A6CE2-435D-4C66-9051-673F2499EA50}|web_CRUD\\web_CRUD.csproj|h:\\work\\work_lark_crud\\web_crud\\web_crud\\pages\\update.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3A5A6CE2-435D-4C66-9051-673F2499EA50}|web_CRUD\\web_CRUD.csproj|solutionrelative:web_crud\\pages\\update.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3A5A6CE2-435D-4C66-9051-673F2499EA50}|web_CRUD\\web_CRUD.csproj|h:\\work\\work_lark_crud\\web_crud\\web_crud\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3A5A6CE2-435D-4C66-9051-673F2499EA50}|web_CRUD\\web_CRUD.csproj|solutionrelative:web_crud\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3A5A6CE2-435D-4C66-9051-673F2499EA50}|web_CRUD\\web_CRUD.csproj|h:\\work\\work_lark_crud\\web_crud\\web_crud\\pages\\delete.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3A5A6CE2-435D-4C66-9051-673F2499EA50}|web_CRUD\\web_CRUD.csproj|solutionrelative:web_crud\\pages\\delete.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3A5A6CE2-435D-4C66-9051-673F2499EA50}|web_CRUD\\web_CRUD.csproj|h:\\work\\work_lark_crud\\web_crud\\web_crud\\pages\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3A5A6CE2-435D-4C66-9051-673F2499EA50}|web_CRUD\\web_CRUD.csproj|solutionrelative:web_crud\\pages\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3A5A6CE2-435D-4C66-9051-673F2499EA50}|web_CRUD\\web_CRUD.csproj|h:\\work\\work_lark_crud\\web_crud\\web_crud\\pages\\model\\data.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3A5A6CE2-435D-4C66-9051-673F2499EA50}|web_CRUD\\web_CRUD.csproj|solutionrelative:web_crud\\pages\\model\\data.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3A5A6CE2-435D-4C66-9051-673F2499EA50}|web_CRUD\\web_CRUD.csproj|h:\\work\\work_lark_crud\\web_crud\\web_crud\\pages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{3A5A6CE2-435D-4C66-9051-673F2499EA50}|web_CRUD\\web_CRUD.csproj|solutionrelative:web_crud\\pages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{3A5A6CE2-435D-4C66-9051-673F2499EA50}|web_CRUD\\web_CRUD.csproj|h:\\work\\work_lark_crud\\web_crud\\web_crud\\pages\\update.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3A5A6CE2-435D-4C66-9051-673F2499EA50}|web_CRUD\\web_CRUD.csproj|solutionrelative:web_crud\\pages\\update.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -46,93 +42,80 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Update.cshtml.cs",
-              "DocumentMoniker": "H:\\Work\\work_lark_CRUD\\web_CRUD\\web_CRUD\\Pages\\Update.cshtml.cs",
-              "RelativeDocumentMoniker": "web_CRUD\\Pages\\Update.cshtml.cs",
-              "ToolTip": "H:\\Work\\work_lark_CRUD\\web_CRUD\\web_CRUD\\Pages\\Update.cshtml.cs",
-              "RelativeToolTip": "web_CRUD\\Pages\\Update.cshtml.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAACoAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-08T06:32:42.33Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Update.cshtml",
-              "DocumentMoniker": "H:\\Work\\work_lark_CRUD\\web_CRUD\\web_CRUD\\Pages\\Update.cshtml",
-              "RelativeDocumentMoniker": "web_CRUD\\Pages\\Update.cshtml",
-              "ToolTip": "H:\\Work\\work_lark_CRUD\\web_CRUD\\web_CRUD\\Pages\\Update.cshtml",
-              "RelativeToolTip": "web_CRUD\\Pages\\Update.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-08-08T06:31:49.114Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Program.cs",
-              "DocumentMoniker": "H:\\Work\\work_lark_CRUD\\web_CRUD\\web_CRUD\\Program.cs",
-              "RelativeDocumentMoniker": "web_CRUD\\Program.cs",
-              "ToolTip": "H:\\Work\\work_lark_CRUD\\web_CRUD\\web_CRUD\\Program.cs",
-              "RelativeToolTip": "web_CRUD\\Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAzAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-08T04:17:04.449Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "LarkApiClient.cs",
               "DocumentMoniker": "H:\\Work\\work_lark_CRUD\\web_CRUD\\web_CRUD\\Pages\\LarkApiClient.cs",
               "RelativeDocumentMoniker": "web_CRUD\\Pages\\LarkApiClient.cs",
               "ToolTip": "H:\\Work\\work_lark_CRUD\\web_CRUD\\web_CRUD\\Pages\\LarkApiClient.cs",
               "RelativeToolTip": "web_CRUD\\Pages\\LarkApiClient.cs",
-              "ViewState": "AQIAAC0AAAAAAAAAAAAqwEgAAAAAAAAA",
+              "ViewState": "AQIAABsAAAAAAAAAAAAjwC8AAAA6AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-08T04:15:02.809Z",
+              "WhenOpened": "2024-08-08T07:16:31.519Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Index.cshtml.cs",
-              "DocumentMoniker": "H:\\Work\\work_lark_CRUD\\web_CRUD\\web_CRUD\\Pages\\Index.cshtml.cs",
-              "RelativeDocumentMoniker": "web_CRUD\\Pages\\Index.cshtml.cs",
-              "ToolTip": "H:\\Work\\work_lark_CRUD\\web_CRUD\\web_CRUD\\Pages\\Index.cshtml.cs",
-              "RelativeToolTip": "web_CRUD\\Pages\\Index.cshtml.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAYwBEAAAAJAAAA",
+              "DocumentIndex": 1,
+              "Title": "Update.cshtml.cs",
+              "DocumentMoniker": "H:\\Work\\work_lark_CRUD\\web_CRUD\\web_CRUD\\Pages\\Update.cshtml.cs",
+              "RelativeDocumentMoniker": "web_CRUD\\Pages\\Update.cshtml.cs",
+              "ToolTip": "H:\\Work\\work_lark_CRUD\\web_CRUD\\web_CRUD\\Pages\\Update.cshtml.cs",
+              "RelativeToolTip": "web_CRUD\\Pages\\Update.cshtml.cs",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAYwB8AAAAuAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-08T04:13:52.825Z",
+              "WhenOpened": "2024-08-08T07:12:00.743Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "H:\\Work\\work_lark_CRUD\\web_CRUD\\web_CRUD\\Pages\\Index.cshtml",
-              "RelativeDocumentMoniker": "web_CRUD\\Pages\\Index.cshtml",
-              "ToolTip": "H:\\Work\\work_lark_CRUD\\web_CRUD\\web_CRUD\\Pages\\Index.cshtml",
-              "RelativeToolTip": "web_CRUD\\Pages\\Index.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAAAAAA",
+              "DocumentIndex": 2,
+              "Title": "Delete.cshtml.cs",
+              "DocumentMoniker": "H:\\Work\\work_lark_CRUD\\web_CRUD\\web_CRUD\\Pages\\Delete.cshtml.cs",
+              "RelativeDocumentMoniker": "web_CRUD\\Pages\\Delete.cshtml.cs",
+              "ToolTip": "H:\\Work\\work_lark_CRUD\\web_CRUD\\web_CRUD\\Pages\\Delete.cshtml.cs",
+              "RelativeToolTip": "web_CRUD\\Pages\\Delete.cshtml.cs",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAAwAkAAAAEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-08T07:11:54.005Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Delete.cshtml",
+              "DocumentMoniker": "H:\\Work\\work_lark_CRUD\\web_CRUD\\web_CRUD\\Pages\\Delete.cshtml",
+              "RelativeDocumentMoniker": "web_CRUD\\Pages\\Delete.cshtml",
+              "ToolTip": "H:\\Work\\work_lark_CRUD\\web_CRUD\\web_CRUD\\Pages\\Delete.cshtml",
+              "RelativeToolTip": "web_CRUD\\Pages\\Delete.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-08-08T04:13:09.918Z",
+              "WhenOpened": "2024-08-08T07:11:50.739Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
               "Title": "data.cs",
               "DocumentMoniker": "H:\\Work\\work_lark_CRUD\\web_CRUD\\web_CRUD\\Pages\\Model\\data.cs",
               "RelativeDocumentMoniker": "web_CRUD\\Pages\\Model\\data.cs",
               "ToolTip": "H:\\Work\\work_lark_CRUD\\web_CRUD\\web_CRUD\\Pages\\Model\\data.cs",
               "RelativeToolTip": "web_CRUD\\Pages\\Model\\data.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAFAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-08T04:11:48.844Z",
+              "WhenOpened": "2024-08-08T07:11:42.974Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Update.cshtml",
+              "DocumentMoniker": "H:\\Work\\work_lark_CRUD\\web_CRUD\\web_CRUD\\Pages\\Update.cshtml",
+              "RelativeDocumentMoniker": "web_CRUD\\Pages\\Update.cshtml",
+              "ToolTip": "H:\\Work\\work_lark_CRUD\\web_CRUD\\web_CRUD\\Pages\\Update.cshtml",
+              "RelativeToolTip": "web_CRUD\\Pages\\Update.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAABPAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-08-08T07:11:29.228Z",
               "EditorCaption": ""
             }
           ]

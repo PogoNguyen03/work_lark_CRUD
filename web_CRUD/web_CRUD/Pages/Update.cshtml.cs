@@ -1,15 +1,17 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Threading.Tasks;
+using web_CRUD.Pages.Model;
 
 public class UpdateModel : PageModel
 {
     private readonly LarkApiClient _larkApiClient;
 
     [BindProperty]
-    public string RecordId { get; set; }
-    [BindProperty]
     public string JsonContent { get; set; }
+    [BindProperty]
+    public string RecordId { get; set; }
+
 
     public UpdateModel(LarkApiClient larkApiClient)
     {
@@ -27,16 +29,7 @@ public class UpdateModel : PageModel
             return Page();
         }
 
-        try
-        {
-            await _larkApiClient.UpdateRecordAsync(RecordId, JsonContent);
-        }
-        catch (HttpRequestException ex)
-        {
-            ModelState.AddModelError(string.Empty, "Error updating record: " + ex.Message);
-            return Page();
-        }
-
+        await _larkApiClient.UpdateRecordAsync(RecordId, JsonContent);
         return RedirectToPage("Index");
     }
 }
