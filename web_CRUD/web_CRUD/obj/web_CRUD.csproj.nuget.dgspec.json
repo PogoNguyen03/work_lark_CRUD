@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "H:\\Work\\lark_project\\web_CRUD\\web_CRUD\\web_CRUD.csproj": {}
+    "H:\\Work\\work_lark_CRUD\\web_CRUD\\web_CRUD\\web_CRUD.csproj": {}
   },
   "projects": {
-    "H:\\Work\\lark_project\\web_CRUD\\web_CRUD\\web_CRUD.csproj": {
+    "H:\\Work\\work_lark_CRUD\\web_CRUD\\web_CRUD\\web_CRUD.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "H:\\Work\\lark_project\\web_CRUD\\web_CRUD\\web_CRUD.csproj",
+        "projectUniqueName": "H:\\Work\\work_lark_CRUD\\web_CRUD\\web_CRUD\\web_CRUD.csproj",
         "projectName": "web_CRUD",
-        "projectPath": "H:\\Work\\lark_project\\web_CRUD\\web_CRUD\\web_CRUD.csproj",
+        "projectPath": "H:\\Work\\work_lark_CRUD\\web_CRUD\\web_CRUD\\web_CRUD.csproj",
         "packagesPath": "C:\\Users\\LENOVO\\.nuget\\packages\\",
-        "outputPath": "H:\\Work\\lark_project\\web_CRUD\\web_CRUD\\obj\\",
+        "outputPath": "H:\\Work\\work_lark_CRUD\\web_CRUD\\web_CRUD\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

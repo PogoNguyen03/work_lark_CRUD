@@ -1,4 +1,5 @@
-﻿using System.Net.Http;
+﻿using System;
+using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
@@ -42,9 +43,25 @@ public class LarkApiClient
     public async Task<string> UpdateRecordAsync(string recordId, string jsonContent)
     {
         var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
-        var response = await _httpClient.PatchAsync($"{GetEndpoint()}/{recordId}", content);
-        response.EnsureSuccessStatusCode();
-        return await response.Content.ReadAsStringAsync();
+        var request = new HttpRequestMessage(HttpMethod.Patch, $"{GetEndpoint()}/{recordId}")
+        {
+            Content = content
+        };
+
+        try
+        {
+            var response = await _httpClient.SendAsync(request);
+            response.EnsureSuccessStatusCode();
+            return await response.Content.ReadAsStringAsync();
+        }
+        catch (HttpRequestException ex)
+        {
+            // Log the error for debugging purposes
+            Console.WriteLine($"Request to update record failed: {ex.Message}");
+            Console.WriteLine($"Endpoint: {request.RequestUri}");
+            Console.WriteLine($"Content: {jsonContent}");
+            throw;
+        }
     }
 
     public async Task DeleteRecordAsync(string recordId)

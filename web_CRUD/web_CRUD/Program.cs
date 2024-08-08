@@ -7,7 +7,7 @@ builder.Services.AddRazorPages();
 builder.Services.AddSingleton(sp => new LarkApiClient(
     "JZrLbU4i5aRsOKsY0HVlNnRfgTg",
     "tblJdJc0Z2aecwva",
-    "u-caQ9GT66l7qHWoG_xICiEiQh11fh1hd3oyw0g1s02Bog"
+    "u-faUquabLh9PqBN6vSMnbkCQh337h1hDFMyw040c02wth"
 ));
 
 var app = builder.Build();

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "DH6SxxjZ1eoiRsUQwVKdGY9LEH7z0EDlf7iXYgAq+/NrBGrQyNZpJdBe3jiABHHqc0tlp7C8czj+1hWnBTNgIA==",
+  "dgSpecHash": "hmW/+hJS+tE2c901Q6s9ouSjr0D7ccQzzZny29L2m6FH7ww5SPk0SZ6J9Bytj8W16BYjRC80TOGZSS4Fx0WS2g==",
   "success": true,
-  "projectFilePath": "H:\\Work\\lark_project\\web_CRUD\\web_CRUD\\web_CRUD.csproj",
+  "projectFilePath": "H:\\Work\\work_lark_CRUD\\web_CRUD\\web_CRUD\\web_CRUD.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\LENOVO\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.1\\microsoft.netcore.platforms.1.1.1.nupkg.sha512",
     "C:\\Users\\LENOVO\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",

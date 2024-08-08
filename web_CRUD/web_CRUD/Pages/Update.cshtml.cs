@@ -27,7 +27,16 @@ public class UpdateModel : PageModel
             return Page();
         }
 
-        await _larkApiClient.UpdateRecordAsync(RecordId, JsonContent);
+        try
+        {
+            await _larkApiClient.UpdateRecordAsync(RecordId, JsonContent);
+        }
+        catch (HttpRequestException ex)
+        {
+            ModelState.AddModelError(string.Empty, "Error updating record: " + ex.Message);
+            return Page();
+        }
+
         return RedirectToPage("Index");
     }
 }
