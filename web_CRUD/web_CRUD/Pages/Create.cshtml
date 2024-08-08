@@ -1,0 +1,15 @@
+﻿@page
+@model CreateModel
+@{
+    ViewData["Title"] = "Create Record";
+}
+
+<h1>Create Record</h1>
+
+<form method="post">
+    <div>
+        <label for="JsonContent">JSON Content:</label>
+        <textarea id="JsonContent" name="JsonContent" rows="10" cols="50">@Model.JsonContent</textarea>
+    </div>
+    <button type="submit">Create</button>
+</form>

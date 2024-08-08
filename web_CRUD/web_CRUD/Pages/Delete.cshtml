@@ -1,0 +1,15 @@
+﻿@page
+@model DeleteModel
+@{
+    ViewData["Title"] = "Delete Record";
+}
+
+<h1>Delete Record</h1>
+
+<form method="post">
+    <div>
+        <label for="RecordId">Record ID:</label>
+        <input id="RecordId" name="RecordId" type="text" value="@Model.RecordId" />
+    </div>
+    <button type="submit">Delete</button>
+</form>

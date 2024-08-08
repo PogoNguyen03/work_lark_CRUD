@@ -1,0 +1,19 @@
+﻿@page
+@model UpdateModel
+@{
+    ViewData["Title"] = "Update Record";
+}
+
+<h1>Update Record</h1>
+
+<form method="post">
+    <div>
+        <label for="RecordId">Record ID:</label>
+        <input id="RecordId" name="RecordId" type="text" value="@Model.RecordId" />
+    </div>
+    <div>
+        <label for="JsonContent">JSON Content:</label>
+        <textarea id="JsonContent" name="JsonContent" rows="10" cols="50">@Model.JsonContent</textarea>
+    </div>
+    <button type="submit">Update</button>
+</form>
