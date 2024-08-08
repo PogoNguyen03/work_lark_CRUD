@@ -7,26 +7,30 @@ using System.Threading.Tasks;
 public class LarkApiClient
 {
     private readonly HttpClient _httpClient;
+    private readonly TokenService _tokenService;
     private const string BaseUrl = "https://open.larksuite.com/open-apis/bitable/v1/apps/";
-    private readonly string _appToken;
-    private readonly string _tableId;
-    private readonly string _authorization;
+    private readonly string _appToken; // The app token or ID
+    private readonly string _tableId; // The table ID
 
-    public LarkApiClient(string appToken, string tableId, string authorization)
+    public LarkApiClient(TokenService tokenService, string appToken, string tableId)
     {
         _httpClient = new HttpClient();
+        _tokenService = tokenService;
         _appToken = appToken;
         _tableId = tableId;
-        _authorization = authorization;
+    }
 
-        // Ensure the Authorization header is set
-        _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _authorization);
+    private async Task EnsureTokenAsync()
+    {
+        var accessToken = await _tokenService.GetAccessTokenAsync();
+        _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
     }
 
     private string GetEndpoint() => $"{BaseUrl}{_appToken}/tables/{_tableId}/records";
 
     public async Task<string> GetRecordsAsync()
     {
+        await EnsureTokenAsync();
         var response = await _httpClient.GetAsync(GetEndpoint());
         response.EnsureSuccessStatusCode();
         return await response.Content.ReadAsStringAsync();
@@ -34,6 +38,7 @@ public class LarkApiClient
 
     public async Task<string> CreateRecordAsync(string jsonContent)
     {
+        await EnsureTokenAsync();
         var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
         var response = await _httpClient.PostAsync(GetEndpoint(), content);
         response.EnsureSuccessStatusCode();
@@ -42,6 +47,7 @@ public class LarkApiClient
 
     public async Task<string> UpdateRecordAsync(string recordId, string jsonContent)
     {
+        await EnsureTokenAsync();
         var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
         var response = await _httpClient.PutAsync($"{GetEndpoint()}/{recordId}", content);
         response.EnsureSuccessStatusCode();
@@ -50,6 +56,7 @@ public class LarkApiClient
 
     public async Task DeleteRecordAsync(string recordId)
     {
+        await EnsureTokenAsync();
         var response = await _httpClient.DeleteAsync($"{GetEndpoint()}/{recordId}");
         response.EnsureSuccessStatusCode();
     }

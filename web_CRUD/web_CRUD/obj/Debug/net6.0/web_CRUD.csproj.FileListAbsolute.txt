@@ -41,6 +41,7 @@ H:\Work\work_lark_CRUD\web_CRUD\web_CRUD\bin\Debug\net6.0\web_CRUD.deps.json
 H:\Work\work_lark_CRUD\web_CRUD\web_CRUD\bin\Debug\net6.0\web_CRUD.runtimeconfig.json
 H:\Work\work_lark_CRUD\web_CRUD\web_CRUD\bin\Debug\net6.0\web_CRUD.dll
 H:\Work\work_lark_CRUD\web_CRUD\web_CRUD\bin\Debug\net6.0\web_CRUD.pdb
+H:\Work\work_lark_CRUD\web_CRUD\web_CRUD\bin\Debug\net6.0\Newtonsoft.Json.dll
 H:\Work\work_lark_CRUD\web_CRUD\web_CRUD\bin\Debug\net6.0\System.Text.Encodings.Web.dll
 H:\Work\work_lark_CRUD\web_CRUD\web_CRUD\bin\Debug\net6.0\System.Text.Json.dll
 H:\Work\work_lark_CRUD\web_CRUD\web_CRUD\bin\Debug\net6.0\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll

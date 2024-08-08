@@ -3,12 +3,16 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorPages();
 
-// Register the LarkApiClient with the required parameters
-builder.Services.AddSingleton(sp => new LarkApiClient(
-    "JZrLbU4i5aRsOKsY0HVlNnRfgTg",
-    "tblJdJc0Z2aecwva",
-    "u-faUquabLh9PqBN6vSMnbkCQh337h1hDFMyw040c02wth"
-));
+// Register the TokenService and LarkApiClient
+builder.Services.AddSingleton<TokenService>(sp =>
+    new TokenService("your_app_id", "your_app_secret"));
+
+builder.Services.AddSingleton<LarkApiClient>(sp =>
+    new LarkApiClient(
+        sp.GetRequiredService<TokenService>(),
+        "JZrLbU4i5aRsOKsY0HVlNnRfgTg",  // App token
+        "tblJdJc0Z2aecwva"  // Table ID
+    ));
 
 var app = builder.Build();
 
