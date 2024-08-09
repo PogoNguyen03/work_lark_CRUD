@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -39,6 +40,8 @@ public class TokenService
             // Assume the token is valid for 1 hour
             _tokenExpiry = DateTime.UtcNow.AddHours(1);
         }
+        // Kiểm tra xem token có được cập nhật và lưu trữ chính xác không
+        Debug.WriteLine($"Access Token: {_accessToken}");
 
         return _accessToken;
     }

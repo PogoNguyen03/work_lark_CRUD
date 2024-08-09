@@ -32,18 +32,34 @@ public class LarkApiClient
     {
         await EnsureTokenAsync();
         var response = await _httpClient.GetAsync(GetEndpoint());
+
+        if (!response.IsSuccessStatusCode)
+        {
+            var errorMessage = await response.Content.ReadAsStringAsync();
+            Console.WriteLine($"Error: {response.StatusCode} - {errorMessage}");
+        }
+
         response.EnsureSuccessStatusCode();
         return await response.Content.ReadAsStringAsync();
     }
+
 
     public async Task<string> CreateRecordAsync(string jsonContent)
     {
         await EnsureTokenAsync();
         var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
         var response = await _httpClient.PostAsync(GetEndpoint(), content);
+
+        if (!response.IsSuccessStatusCode)
+        {
+            var errorMessage = await response.Content.ReadAsStringAsync();
+            Console.WriteLine($"Error: {response.StatusCode} - {errorMessage}");
+        }
+
         response.EnsureSuccessStatusCode();
         return await response.Content.ReadAsStringAsync();
     }
+
 
     public async Task<string> UpdateRecordAsync(string recordId, string jsonContent)
     {

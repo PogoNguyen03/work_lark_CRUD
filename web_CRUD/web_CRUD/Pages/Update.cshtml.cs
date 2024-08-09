@@ -20,6 +20,7 @@ public class UpdateModel : PageModel
 
     public void OnGet()
     {
+
     }
 
     public async Task<IActionResult> OnPostAsync()
