@@ -18,14 +18,14 @@ public class CreateModel : PageModel
     {
     }
 
-    public async Task<IActionResult> OnPostAsync()
+    public async Task<IActionResult> OnPostAsync(string authorizationCode)
     {
         if (!ModelState.IsValid)
         {
             return Page();
         }
 
-        await _larkApiClient.CreateRecordAsync(JsonContent);
+        await _larkApiClient.CreateRecordAsync(JsonContent, authorizationCode);
         return RedirectToPage("Index");
     }
 }

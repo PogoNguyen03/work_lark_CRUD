@@ -23,14 +23,14 @@ public class UpdateModel : PageModel
 
     }
 
-    public async Task<IActionResult> OnPostAsync()
+    public async Task<IActionResult> OnPostAsync(string authorizationCode)
     {
         if (!ModelState.IsValid)
         {
             return Page();
         }
 
-        await _larkApiClient.UpdateRecordAsync(RecordId, JsonContent);
+        await _larkApiClient.UpdateRecordAsync(RecordId, JsonContent, authorizationCode);
         return RedirectToPage("Index");
     }
 }

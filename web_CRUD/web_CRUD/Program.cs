@@ -5,8 +5,8 @@ builder.Services.AddRazorPages();
 
 // Register the TokenService and LarkApiClient
 builder.Services.AddSingleton<TokenService>(sp =>
-    new TokenService("cli_a63867f351785009" //app id
-    , "3W4ZQl09pVB4KSQymLpFhIJvO06OpzMT" //app secret
+    new TokenService("cli_a63339047a399010" //app id
+    , "b97g18wMrejUvbdhGRemagTZAI2RST5r" //app secret
     ));
 
 builder.Services.AddSingleton<LarkApiClient>(sp =>

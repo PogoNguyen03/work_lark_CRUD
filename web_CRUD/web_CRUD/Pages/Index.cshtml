@@ -1,8 +1,19 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Home Page";
 }
 
-<h1>LIST</h1>
-<pre>@Model.Records</pre>
+<h2>Welcome to the Home Page</h2>
+
+<p>
+    <a href="@Model.AuthUrl">Authenticate with Lark Suite</a>
+</p>
+
+@if (!string.IsNullOrEmpty(Model.Records))
+{
+    <div>
+        <h3>Records:</h3>
+        <pre>@Model.Records</pre>
+    </div>
+}
