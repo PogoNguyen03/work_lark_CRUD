@@ -2,13 +2,13 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Threading.Tasks;
 
-public class IndexModel : PageModel
+public class CallbackModel : PageModel
 {
     private readonly LarkApiService _larkApiService;
 
     public string Records { get; private set; }
 
-    public IndexModel(LarkApiService larkApiService)
+    public CallbackModel(LarkApiService larkApiService)
     {
         _larkApiService = larkApiService;
     }
@@ -17,13 +17,15 @@ public class IndexModel : PageModel
     {
         if (string.IsNullOrEmpty(authorizationCode))
         {
-            _larkApiService.RedirectToGetCodeToken(); // Gọi phương thức chính xác
-            return new EmptyResult(); // Kết thúc quá trình xử lý sau khi chuyển hướng
+            return BadRequest("Authorization code is missing.");
         }
 
         try
         {
+            // Lấy token người dùng
             await _larkApiService.GetUserAccessTokenAsync(authorizationCode);
+
+            // Lấy tất cả records
             Records = await _larkApiService.SelectAllBaseAsync();
         }
         catch (HttpRequestException ex)
@@ -31,9 +33,8 @@ public class IndexModel : PageModel
             Records = $"Error: {ex.Message}";
         }
 
-        return Page();
+        // Chuyển hướng đến trang chủ hoặc bất kỳ trang nào bạn muốn
+        return RedirectToPage("/Index", new { records = Records });
     }
-
-
 
 }

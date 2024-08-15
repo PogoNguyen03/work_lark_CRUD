@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34723.18
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "web_CRUD", "web_CRUD\web_CRUD.csproj", "{3A5A6CE2-435D-4C66-9051-673F2499EA50}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "web_CRUD", "web_CRUD\web_CRUD.csproj", "{3A5A6CE2-435D-4C66-9051-673F2499EA50}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

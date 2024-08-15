@@ -18,6 +18,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = H:\Work\work_lark_CRUD\web_CRUD\web_CRUD
 build_property._RazorSourceGeneratorDebug = 
 
+[H:/Work/work_lark_CRUD/web_CRUD/web_CRUD/Pages/CallbackModel.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2FsbGJhY2tNb2RlbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [H:/Work/work_lark_CRUD/web_CRUD/web_CRUD/Pages/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
