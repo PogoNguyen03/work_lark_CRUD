@@ -18,14 +18,14 @@ public class DeleteModel : PageModel
     {
     }
 
-    public async Task<IActionResult> OnPostAsync()
+    public async Task<IActionResult> OnPostAsync(string authorizationCode)
     {
         if (!ModelState.IsValid)
         {
             return Page();
         }
 
-        await _larkApiClient.DeleteRecordAsync(RecordId);
+        await _larkApiClient.DeleteRecordAsync(RecordId, authorizationCode);
         return RedirectToPage("Index");
     }
 }

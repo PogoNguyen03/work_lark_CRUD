@@ -6,21 +6,30 @@ public class IndexModel : PageModel
     private readonly LarkApiClient _larkApiClient;
 
     public string Records { get; private set; }
+    public string ErrorMessage { get; private set; }
 
     public IndexModel(LarkApiClient larkApiClient)
     {
         _larkApiClient = larkApiClient;
     }
 
-    public async Task OnGetAsync()
+    public async Task OnGetAsync(string code)
     {
-        try
+        if (!string.IsNullOrEmpty(code))
         {
-            Records = await _larkApiClient.GetRecordsAsync();
+            try
+            {
+                // Xử lý mã xác thực và lấy dữ liệu
+                Records = await _larkApiClient.GetRecordsAsync(code);
+            }
+            catch (HttpRequestException ex)
+            {
+                ErrorMessage = $"Error: {ex.Message}";
+            }
         }
-        catch (HttpRequestException ex)
+        else
         {
-            Records = $"Error: {ex.Message}";
+            ErrorMessage = "Authorization code is missing.";
         }
     }
 }

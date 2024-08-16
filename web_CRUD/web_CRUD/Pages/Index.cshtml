@@ -5,4 +5,12 @@
 }
 
 <h1>LIST</h1>
-<pre>@Model.Records</pre>
+<a href="https://open.larksuite.com/open-apis/authen/v1/index?app_id=cli_a63339047a399010&redirect_uri=https://localhost:44324/&response_type=code">Login with Lark</a>
+@if (Model.ErrorMessage != null)
+{
+    <p style="color: red;">@Model.ErrorMessage</p>
+}
+else
+{
+    <pre>@Model.Records</pre>
+}

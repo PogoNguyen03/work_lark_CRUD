@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Threading.Tasks;
 
@@ -18,14 +18,14 @@ public class CreateModel : PageModel
     {
     }
 
-    public async Task<IActionResult> OnPostAsync()
+    public async Task<IActionResult> OnPostAsync(string code)
     {
         if (!ModelState.IsValid)
         {
             return Page();
         }
 
-        await _larkApiClient.CreateRecordAsync(JsonContent);
+        await _larkApiClient.CreateRecordAsync(JsonContent, code);
         return RedirectToPage("Index");
     }
 }
