@@ -1,4 +1,4 @@
-﻿@* @page
+﻿@page
 @model UpdateModel
 @{
     ViewData["Title"] = "Update Record";
@@ -7,14 +7,25 @@
 <h1>Update Record</h1>
 
 <form method="post">
-    <div>
-        <label for="RecordId">Record ID:</label>
-        <input id="RecordId" name="RecordId" type="text" value="@Model.RecordId" />
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        <label asp-for="RecordId" class="control-label">Record ID:</label>
+        <input asp-for="RecordId" class="form-control" />
+        <span asp-validation-for="RecordId" class="text-danger"></span>
     </div>
-    <div>
-        <label for="JsonContent">JSON Content:</label>
-        <textarea id="JsonContent" name="JsonContent" rows="10" cols="50">@Model.JsonContent</textarea>
+
+    <div class="form-group">
+        <label asp-for="JsonContent" class="control-label">JSON Content:</label>
+        <textarea asp-for="JsonContent" class="form-control" rows="10" cols="50"></textarea>
+        <span asp-validation-for="JsonContent" class="text-danger"></span>
     </div>
-    <button type="submit">Update</button>
+
+    <button type="submit" class="btn btn-primary">Update</button>
 </form>
- *@
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

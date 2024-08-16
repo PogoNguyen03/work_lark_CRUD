@@ -92,17 +92,22 @@ public class LarkApiClient
         return await response.Content.ReadAsStringAsync();
     }
 
-    public async Task<string> UpdateRecordAsync(string recordId, string jsonContent)
+    public async Task<string> UpdateRecordAsync(string recordId, string jsonContent, string authorizationCode)
     {
+        await EnsureTokenAsync(authorizationCode);
         var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
         var response = await _httpClient.PutAsync($"{GetEndpoint()}/{recordId}", content);
         response.EnsureSuccessStatusCode();
         return await response.Content.ReadAsStringAsync();
     }
 
-    public async Task DeleteRecordAsync(string recordId)
+
+    public async Task<string> DeleteRecordAsync(string recordId, string authorizationCode)
     {
+        await EnsureTokenAsync(authorizationCode);
         var response = await _httpClient.DeleteAsync($"{GetEndpoint()}/{recordId}");
         response.EnsureSuccessStatusCode();
+        return await response.Content.ReadAsStringAsync();
     }
+
 }
