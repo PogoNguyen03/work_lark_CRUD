@@ -16,9 +16,7 @@ public class LarkApiService
     private readonly string TableId = "tblJdJc0Z2aecwva";
     private readonly string AppToken = "JZrLbU4i5aRsOKsY0HVlNnRfgTg";
     private readonly string DepartmentId = "0";
-    private readonly string RedirectUri = "https://open.larksuite.com/api-explorer/loading";
-    private readonly string RedirectUriCallBack = "https://open.larksuite.com/api-explorer/loading/callback"; // Cập nhật URL callback của bạn
-
+    private readonly string RedirectUri = "https://localhost:44324/";
 
     public LarkApiService(HttpClient httpClient, IHttpContextAccessor httpContextAccessor, IConfiguration configuration)
     {
@@ -26,7 +24,6 @@ public class LarkApiService
         _httpContextAccessor = httpContextAccessor;
         _configuration = configuration;
 
-        // Default headers
         _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
     }
 
@@ -48,32 +45,29 @@ public class LarkApiService
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Error getting code token: {ex.Message}");
+            Console.WriteLine($"Error redirecting to get code token: {ex.Message}");
         }
     }
 
-
-    public async Task<string> GetAppAccessTokenAsync()
+    public async Task<string> HandleRedirectAndExchangeTokenAsync()
     {
         try
         {
-            var response = await _httpClient.PostAsync(
-                "/api/open-apis/auth/v3/app_access_token/internal",
-                new StringContent(JsonSerializer.Serialize(new { app_id = AppSecretConfig.AppId, app_secret = AppSecretConfig.AppSecret }), Encoding.UTF8, "application/json")
-            );
+            var query = _httpContextAccessor.HttpContext.Request.Query;
+            if (query.ContainsKey("code"))
+            {
+                var authorizationCode = query["code"].ToString();
+                return await GetUserAccessTokenAsync(authorizationCode);
+            }
 
-            response.EnsureSuccessStatusCode();
-            var jsonResponse = await response.Content.ReadAsStringAsync();
-            var jsonDoc = JsonDocument.Parse(jsonResponse);
-            return jsonDoc.RootElement.GetProperty("app_access_token").GetString();
+            throw new Exception("Authorization code not found in the query parameters.");
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Error getting app access token: {ex.Message}");
+            Console.WriteLine($"Error handling redirect and exchanging token: {ex.Message}");
             throw;
         }
     }
-
 
     public async Task<string> GetUserAccessTokenAsync(string authorizationCode)
     {
@@ -89,7 +83,7 @@ public class LarkApiService
             };
 
             var response = await _httpClient.PostAsync(
-                "/api/open-apis/authen/v1/access_token",
+                "/open-apis/authen/v1/access_token",
                 new StringContent(JsonSerializer.Serialize(data), Encoding.UTF8, "application/json")
             );
 
@@ -101,7 +95,7 @@ public class LarkApiService
             // Set the user access token in a cookie
             _httpContextAccessor.HttpContext.Response.Cookies.Append("user_access_token", accessToken, new CookieOptions { Expires = DateTimeOffset.UtcNow.AddHours(1) });
 
-            // Redirect to home page
+            // Redirect to home page or any other page
             _httpContextAccessor.HttpContext.Response.Redirect("/");
 
             return accessToken;
