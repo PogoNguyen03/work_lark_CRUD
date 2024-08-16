@@ -10,13 +10,13 @@ public class LarkApiClient
 {
     private readonly HttpClient _httpClient;
     private const string BaseUrl = "https://open.larksuite.com/open-apis/bitable/v1/apps/";
-    private readonly string _appToken; // The app token or ID
-    private readonly string _tableId; // The table ID
-    private readonly string _appId; // App ID
-    private readonly string _appSecret; // App Secret
-    private readonly string _redirectUri; // Redirect URI
+    private readonly string _appToken;
+    private readonly string _tableId;
+    private readonly string _appId;
+    private readonly string _appSecret;
+    private readonly string _redirectUri;
+    private string _accessToken;
 
-    // Constructor with appId, appSecret, redirectUri
     public LarkApiClient(string appId, string appSecret, string redirectUri, string appToken, string tableId)
     {
         _httpClient = new HttpClient();
@@ -27,15 +27,16 @@ public class LarkApiClient
         _tableId = tableId;
     }
 
-    private async Task EnsureTokenAsync(string authorizationCode)
+    public async Task EnsureTokenAsync(string authorizationCode)
     {
-        var accessToken = await GetUserAccessTokenAsync(authorizationCode);
-        _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+        if (string.IsNullOrEmpty(_accessToken))
+        {
+            _accessToken = await GetUserAccessTokenAsync(authorizationCode);
+            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _accessToken);
+        }
     }
 
-    private string GetEndpoint() => $"{BaseUrl}{_appToken}/tables/{_tableId}/records";
-
-    public async Task<string> GetUserAccessTokenAsync(string authorizationCode)
+    private async Task<string> GetUserAccessTokenAsync(string authorizationCode)
     {
         var requestUri = "https://open.larksuite.com/open-apis/authen/v1/access_token";
 
@@ -43,9 +44,9 @@ public class LarkApiClient
         {
             grant_type = "authorization_code",
             code = authorizationCode,
-            app_id = _appId, // App ID của bạn
-            app_secret = _appSecret, // App Secret của bạn
-            redirect_uri = _redirectUri // Redirect URI đã cấu hình
+            app_id = _appId,
+            app_secret = _appSecret,
+            redirect_uri = _redirectUri
         };
 
         var content = new StringContent(JsonConvert.SerializeObject(data), Encoding.UTF8, "application/json");
@@ -55,11 +56,10 @@ public class LarkApiClient
         var jsonResponse = await response.Content.ReadAsStringAsync();
         var jsonDoc = JObject.Parse(jsonResponse);
 
-        // Lấy access token từ phản hồi
-        var accessToken = jsonDoc["data"]?["access_token"]?.ToString();
-
-        return accessToken;
+        return jsonDoc["data"]?["access_token"]?.ToString();
     }
+
+    public string GetEndpoint() => $"{BaseUrl}{_appToken}/tables/{_tableId}/records";
 
     public async Task<string> GetRecordsAsync(string authorizationCode)
     {
@@ -92,19 +92,16 @@ public class LarkApiClient
         return await response.Content.ReadAsStringAsync();
     }
 
-
-    public async Task<string> UpdateRecordAsync(string recordId, string jsonContent, string authorizationCode)
+    public async Task<string> UpdateRecordAsync(string recordId, string jsonContent)
     {
-        await EnsureTokenAsync(authorizationCode);
         var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
         var response = await _httpClient.PutAsync($"{GetEndpoint()}/{recordId}", content);
         response.EnsureSuccessStatusCode();
         return await response.Content.ReadAsStringAsync();
     }
 
-    public async Task DeleteRecordAsync(string recordId, string authorizationCode)
+    public async Task DeleteRecordAsync(string recordId)
     {
-        await EnsureTokenAsync(authorizationCode);
         var response = await _httpClient.DeleteAsync($"{GetEndpoint()}/{recordId}");
         response.EnsureSuccessStatusCode();
     }

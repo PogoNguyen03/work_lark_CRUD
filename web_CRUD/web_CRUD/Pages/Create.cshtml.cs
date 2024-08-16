@@ -18,14 +18,21 @@ public class CreateModel : PageModel
     {
     }
 
-    public async Task<IActionResult> OnPostAsync(string code)
+    public async Task<IActionResult> OnPostAsync()
     {
+        // Lấy authorizationCode từ query string hoặc form (cần điều chỉnh tùy theo cách bạn nhận code)
+        var code = Request.Form["code"];
+
         if (!ModelState.IsValid)
         {
             return Page();
         }
 
+        await _larkApiClient.EnsureTokenAsync(code);
+
+        // Tạo bản ghi bằng accessToken đã được thiết lập
         await _larkApiClient.CreateRecordAsync(JsonContent, code);
+
         return RedirectToPage("Index");
     }
 }
