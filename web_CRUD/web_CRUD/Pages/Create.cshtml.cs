@@ -27,11 +27,18 @@ public class CreateModel : PageModel
         {
             return Page();
         }
-
+        // Đảm bảo có accessToken
         await _larkApiClient.EnsureTokenAsync(code);
 
         // Tạo bản ghi bằng accessToken đã được thiết lập
-        await _larkApiClient.CreateRecordAsync(JsonContent, code);
+        var recordId = await _larkApiClient.CreateRecordAsync(JsonContent, code);
+
+        // Gửi tin nhắn cho người nhận
+        string receiveId = "ou_9dc8cf1b8e5535ca825d38ad6bfa12b9";
+        string receiveIdType = "user_id"; // Hoặc "open_id" tùy thuộc vào loại ID
+        string messageContent = "Bạn đã tạo bản ghi với ID: recpk07ZOz.";
+
+        await _larkApiClient.SendMessageAsync(receiveId, receiveIdType, messageContent);
 
         return RedirectToPage("Index");
     }

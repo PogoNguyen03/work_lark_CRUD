@@ -110,4 +110,39 @@ public class LarkApiClient
         return await response.Content.ReadAsStringAsync();
     }
 
+    public async Task SendMessageAsync(string receiveId, string receiveIdType, string messageContent)
+    {
+        var requestUri = "https://open.larksuite.com/open-apis/im/v1/messages";
+
+        var data = new
+        {
+            receive_id = receiveId,
+            receive_id_type = receiveIdType,
+            content = new
+            {
+                text = messageContent
+            },
+            msg_type = "text"
+        };
+
+        var requestContent = new StringContent(JsonConvert.SerializeObject(data), Encoding.UTF8, "application/json");
+        var request = new HttpRequestMessage(HttpMethod.Post, requestUri)
+        {
+            Content = requestContent
+        };
+        request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", "t-g2068g6GSUFIJRQ5J3O6YOFQD2KCWOWKPIUBGL7T");
+
+        var response = await _httpClient.SendAsync(request);
+        var responseBody = await response.Content.ReadAsStringAsync();
+
+        // Log hoặc in ra chi tiết lỗi
+        Console.WriteLine($"Status Code: {response.StatusCode}");
+        Console.WriteLine($"Response Body: {responseBody}");
+
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new HttpRequestException($"Request failed with status code {response.StatusCode}: {responseBody}");
+        }
+    }
+
 }
