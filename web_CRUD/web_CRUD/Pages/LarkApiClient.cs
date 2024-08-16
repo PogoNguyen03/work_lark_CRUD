@@ -5,10 +5,12 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 public class LarkApiClient
 {
     private readonly HttpClient _httpClient;
+    private readonly TokenService _tokenService;
     private const string BaseUrl = "https://open.larksuite.com/open-apis/bitable/v1/apps/";
     private readonly string _appToken;
     private readonly string _tableId;
@@ -17,7 +19,7 @@ public class LarkApiClient
     private readonly string _redirectUri;
     private string _accessToken;
 
-    public LarkApiClient(string appId, string appSecret, string redirectUri, string appToken, string tableId)
+    public LarkApiClient(string appId, string appSecret, string redirectUri, string appToken, string tableId, TokenService tokenService)
     {
         _httpClient = new HttpClient();
         _appId = appId;
@@ -25,6 +27,7 @@ public class LarkApiClient
         _redirectUri = redirectUri;
         _appToken = appToken;
         _tableId = tableId;
+        _tokenService = tokenService;
     }
 
     public async Task EnsureTokenAsync(string authorizationCode)
@@ -34,6 +37,12 @@ public class LarkApiClient
             _accessToken = await GetUserAccessTokenAsync(authorizationCode);
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _accessToken);
         }
+    }
+
+    private async Task TenantTokenAsync()
+    {
+        var tenantToken = await _tokenService.GetAccessTokenAsync();
+        _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", tenantToken);
     }
 
     private async Task<string> GetUserAccessTokenAsync(string authorizationCode)
@@ -112,37 +121,33 @@ public class LarkApiClient
 
     public async Task SendMessageAsync(string receiveId, string receiveIdType, string messageContent)
     {
-        var requestUri = "https://open.larksuite.com/open-apis/im/v1/messages";
+        var requestUri = $"https://open.larksuite.com/open-apis/im/v1/messages?receive_id_type={receiveIdType}";
 
         var data = new
         {
             receive_id = receiveId,
-            receive_id_type = receiveIdType,
-            content = new
-            {
-                text = messageContent
-            },
+            content = JsonConvert.SerializeObject(new { text = messageContent }),
             msg_type = "text"
         };
 
         var requestContent = new StringContent(JsonConvert.SerializeObject(data), Encoding.UTF8, "application/json");
+
+        // Get the tenant access token from TokenService
+        var tenantToken = await _tokenService.GetAccessTokenAsync();
+
         var request = new HttpRequestMessage(HttpMethod.Post, requestUri)
         {
             Content = requestContent
         };
-        request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", "t-g2068g6GSUFIJRQ5J3O6YOFQD2KCWOWKPIUBGL7T");
+        request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", tenantToken);
 
         var response = await _httpClient.SendAsync(request);
         var responseBody = await response.Content.ReadAsStringAsync();
 
-        // Log hoặc in ra chi tiết lỗi
-        Console.WriteLine($"Status Code: {response.StatusCode}");
-        Console.WriteLine($"Response Body: {responseBody}");
+        // Log or print the response for debugging
+        Debug.WriteLine($"Status Code: {response.StatusCode}");
+        Debug.WriteLine($"Response Body: {responseBody}");
 
-        if (!response.IsSuccessStatusCode)
-        {
-            throw new HttpRequestException($"Request failed with status code {response.StatusCode}: {responseBody}");
-        }
+        response.EnsureSuccessStatusCode();
     }
-
 }
